@@ -167,12 +167,22 @@ export function joinPrices({ products, priceRows, printings, expansions, pins = 
   }
 
   const assign = (printing, product, how) => {
-    const trend = trendOf(product);
-    if (trend === null) {
+    const row = priceOf.get(product.idProduct);
+    if (!row || row.trend === null || row.trend === undefined) {
       return;
     }
+    // Every figure Cardmarket publishes for the product, not just the headline.
+    // `low` is the "From" price on their page and `avg1`/`avg7`/`avg30` are the
+    // averages it lists as N/A when nothing has sold — showing all of them is
+    // what lets a reader check us against the source instead of wondering why
+    // one number disagrees with another that measures something else.
     prices[printingKey(printing.cardId, printing.setCode, printing.collectorNumber)] = {
-      eur: trend,
+      eur: row.trend,
+      low: row.low ?? null,
+      avg: row.avg ?? null,
+      avg1: row.avg1 ?? null,
+      avg7: row.avg7 ?? null,
+      avg30: row.avg30 ?? null,
       cm: product.idProduct,
     };
     stats.paired += 1;

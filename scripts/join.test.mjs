@@ -40,8 +40,28 @@ describe("joinPrices", () => {
       expansions: EXPANSIONS,
     });
 
-    assert.deepEqual(prices["cb-judy:wtncbeta:β108"], { eur: 12.5, cm: 1 });
+    assert.equal(prices["cb-judy:wtncbeta:β108"].eur, 12.5);
+    assert.equal(prices["cb-judy:wtncbeta:β108"].cm, 1);
     assert.equal(stats.automatic, 1);
+  });
+
+  it("carries every figure Cardmarket publishes, not just the headline", () => {
+    const { prices } = joinPrices({
+      products: [product(1, "Judy", 6714)],
+      priceRows: [{ idProduct: 1, trend: 73, low: 60, avg: null, avg1: null, avg7: 12, avg30: 15 }],
+      printings: [printing("cb-judy", "wtncbeta", "β108", "Epic", "Judy")],
+      expansions: EXPANSIONS,
+    });
+
+    assert.deepEqual(prices["cb-judy:wtncbeta:β108"], {
+      eur: 73,
+      low: 60,
+      avg: null,
+      avg1: null,
+      avg7: 12,
+      avg30: 15,
+      cm: 1,
+    });
   });
 
   it("gives the dearer product to the Iconic printing", () => {

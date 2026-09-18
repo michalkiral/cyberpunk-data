@@ -246,8 +246,7 @@ async function main() {
   const cards = {};
   for (const [key, value] of Object.entries(prices)) {
     cards[key] = {
-      eur: value.eur,
-      cm: value.cm,
+      ...value,
       d7: movement(history, key, 7),
       d30: movement(history, key, 30),
     };
