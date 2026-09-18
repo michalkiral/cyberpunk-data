@@ -16,12 +16,6 @@ const CM = "https://downloads.s3.cardmarket.com/productCatalog";
 /** Cyberpunk is idGame 23 — found by reading categoryName out of each game's product list. */
 const GAME = 23;
 
-/** Days of EUR history kept. Cardmarket publishes no rolling averages for this
- * game (avg1/avg7/avg30 are null on every row), so this series is the only
- * source of movers, d7/d30 and the value chart — and it can only ever start
- * accumulating from the first run. */
-const HISTORY_DAYS = 120;
-
 /** Per-card requests in flight. A third party's free API, not ours to hammer. */
 const CONCURRENCY = 8;
 
@@ -142,32 +136,6 @@ function verifyExpansions(expansions, report) {
   return problems;
 }
 
-/**
- * Percentage move over `days`, or NULL when the series cannot say.
- *
- * Null rather than 0: zero means "this price did not move", and claiming that
- * on day one — when there is nothing to compare against — would invent a fact.
- * The app renders null as a dash, the same distinction it makes between an
- * unpriced card and a worthless one.
- */
-function movement(history, key, days) {
-  const dates = Object.keys(history).sort();
-  if (dates.length < 2) {
-    return null;
-  }
-  const today = history[dates[dates.length - 1]]?.[key];
-  const thenDate = dates[Math.max(0, dates.length - 1 - days)];
-  // Not enough days yet to look back this far.
-  if (dates.length - 1 < days) {
-    return null;
-  }
-  const then = history[thenDate]?.[key];
-  if (!today || !then) {
-    return null;
-  }
-  return Math.round(((today - then) / then) * 1000) / 10;
-}
-
 async function main() {
   const reportOnly = process.argv.includes("--report");
 
@@ -230,39 +198,17 @@ async function main() {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  const historyPath = join(ROOT, "data", "prices", "history.json");
-  let history = {};
-  try {
-    history = JSON.parse(await readFile(historyPath, "utf8")).days ?? {};
-  } catch {
-    history = {};
-  }
-  history[today] = Object.fromEntries(
-    Object.entries(prices).map(([key, value]) => [key, value.eur]),
-  );
-  const kept = Object.keys(history).sort().slice(-HISTORY_DAYS);
-  history = Object.fromEntries(kept.map((date) => [date, history[date]]));
-
-  const cards = {};
-  for (const [key, value] of Object.entries(prices)) {
-    cards[key] = {
-      ...value,
-      d7: movement(history, key, 7),
-      d30: movement(history, key, 30),
-    };
-  }
 
   await mkdir(join(ROOT, "data", "prices"), { recursive: true });
   await writeFile(
     join(ROOT, "data", "prices", "summary.json"),
-    `${JSON.stringify({ updatedAt: today, source: `cardmarket.com price guide (idGame ${GAME})`, cardCount: Object.keys(cards).length, cards }, null, 0)}\n`,
+    `${JSON.stringify({ updatedAt: today, source: `cardmarket.com price guide (idGame ${GAME})`, cardCount: Object.keys(prices).length, cards: prices }, null, 0)}\n`,
   );
-  await writeFile(historyPath, `${JSON.stringify({ days: history }, null, 0)}\n`);
   await writeFile(
     join(ROOT, "data", "report.json"),
     `${JSON.stringify({ updatedAt: today, stats, unresolved }, null, 2)}\n`,
   );
-  console.log(`\nwrote data/prices/summary.json (${Object.keys(cards).length} printings)`);
+  console.log(`\nwrote data/prices/summary.json (${Object.keys(prices).length} printings)`);
 }
 
 main().catch((error) => {

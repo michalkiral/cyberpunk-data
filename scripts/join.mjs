@@ -6,6 +6,24 @@
 // cannot fill the gaps. The join therefore has to be built out of what the two
 // sides independently agree on.
 
+/**
+ * How far the trend price sits above (or below) an average Cardmarket itself
+ * publishes. Null when they have not computed that average — which is every
+ * Cyberpunk row today, because these are averages of real sales and the game is
+ * pre-retail.
+ *
+ * Derived rather than accumulated ON PURPOSE. Cardmarket already tracks sales
+ * over 1/7/30 days, so keeping a parallel daily series here would duplicate
+ * their work, make the build stateful, and turn a missed night into a permanent
+ * hole. Everything this repo publishes is recomputable from one download.
+ */
+export function movement(trend, average) {
+  if (typeof trend !== "number" || typeof average !== "number" || average === 0) {
+    return null;
+  }
+  return Math.round(((trend - average) / average) * 1000) / 10;
+}
+
 /** Card names match exactly once punctuation and case are ignored. */
 export function normalizeName(name) {
   return String(name)
@@ -183,6 +201,8 @@ export function joinPrices({ products, priceRows, printings, expansions, pins = 
       avg1: row.avg1 ?? null,
       avg7: row.avg7 ?? null,
       avg30: row.avg30 ?? null,
+      d7: movement(row.trend, row.avg7),
+      d30: movement(row.trend, row.avg30),
       cm: product.idProduct,
     };
     stats.paired += 1;

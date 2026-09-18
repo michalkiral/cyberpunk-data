@@ -15,7 +15,6 @@ cannot fetch it. A nightly Action can.
 ```
 data/
   prices/summary.json   # { updatedAt, source, cardCount, cards: { <printingKey>: PriceRow } }
-  prices/history.json   # { days: { "YYYY-MM-DD": { <printingKey>: eur } } }  — rolling 120 days
   report.json           # { updatedAt, stats, unresolved }  — what the join refused to pair
 overrides/
   cm-expansions.json    # Cardmarket idExpansion -> our set code
@@ -35,18 +34,29 @@ check the app against the source instead of wondering why two numbers disagree:
 | `avg` | all-time average sell price | |
 | `avg1`, `avg7`, `avg30` | 1/7/30-days average price | **null on every Cyberpunk row today** — nothing has sold often enough |
 | `cm` | — | the `idProduct` this was paired with: the audit trail for a price |
-| `d7`, `d30` | — | % move of `eur` over our own series; null until it has the days |
+| `d7`, `d30` | — | how far `eur` sits above `avg7` / `avg30`; null until Cardmarket computes those |
 
 The three numbers that look inconsistent but are not: for Adam Smasher β141, `low` is €60,
 `eur` (trend) is €73, and a holding of 2 copies is worth €146. Different measures, not a
 disagreement.
 
-## Why the history file matters
+## This build keeps no state
 
-Cardmarket publishes `avg1`, `avg7` and `avg30` for other games. **For Cyberpunk they are null
-on every row.** So movers, `d7`/`d30` and any value-over-time chart can only come from a series
-we accumulate ourselves, and it can only ever start from the first run — a day not recorded is
-a day that cannot be recovered later.
+Everything here is recomputed from one nightly download. There is no accumulated series, and a
+missed run costs nothing — the next one is just as complete.
+
+That is deliberate. Cardmarket already tracks sales over 1, 7 and 30 days and publishes the
+averages, so keeping a parallel daily series would duplicate their work and make a missed night
+a permanent hole. `d7` and `d30` are derived from their own averages: how far the trend sits
+above `avg7` / `avg30`.
+
+**Today every Cyberpunk row reads null for those**, because they are averages of real sales and
+the game is pre-retail. They populate on Cardmarket's side as the game sells — for One Piece
+they are filled on 11,448 of 12,518 rows. The app shows a dash until then.
+
+The one thing this design gives up is a portfolio-value-over-time chart, which would need a
+series nobody publishes. The app does not draw one (`history={null}`), so nothing is lost today;
+if it is ever wanted, that is the moment to decide whether it is worth becoming stateful for.
 
 ## The join
 

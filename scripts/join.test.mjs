@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { joinPrices, normalizeName, printingKey, profileScore, tierOf } from "./join.mjs";
+import {
+  joinPrices,
+  movement,
+  normalizeName,
+  printingKey,
+  profileScore,
+  tierOf,
+} from "./join.mjs";
 
 const printing = (cardId, setCode, collectorNumber, rarity, cardName) => ({
   cardId,
@@ -60,6 +67,8 @@ describe("joinPrices", () => {
       avg1: null,
       avg7: 12,
       avg30: 15,
+      d7: movement(73, 12),
+      d30: movement(73, 15),
       cm: 1,
     });
   });
@@ -205,5 +214,20 @@ describe("tierOf", () => {
 
   it("treats an unknown rarity as a base printing, which can only cause a flag", () => {
     assert.equal(tierOf("Brand New Tier"), 0);
+  });
+});
+
+describe("movement", () => {
+  it("measures the trend against an average Cardmarket itself publishes", () => {
+    assert.equal(movement(110, 100), 10);
+    assert.equal(movement(90, 100), -10);
+  });
+
+  it("says nothing when they have not computed that average", () => {
+    // Every Cyberpunk row today: these are averages of real sales, and the game
+    // is pre-retail. Null renders as a dash rather than claiming a flat price.
+    assert.equal(movement(73, null), null);
+    assert.equal(movement(73, undefined), null);
+    assert.equal(movement(null, 12), null);
   });
 });

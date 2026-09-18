@@ -56,7 +56,7 @@ jobs:
       - name: Purge jsDelivr cache
         if: steps.commit.outputs.pushed == 'true'
         run: |
-          for f in prices/summary.json prices/history.json report.json; do
+          for f in prices/summary.json report.json; do
             curl -fsS "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/data/$f" > /dev/null \
               || echo "warn: purge failed for $f"
           done
