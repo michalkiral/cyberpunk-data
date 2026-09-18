@@ -14,7 +14,7 @@ cannot fetch it. A nightly Action can.
 
 ```
 data/
-  prices/summary.json   # { updatedAt, source, cardCount, cards: { <printingKey>: { eur, cm, d7, d30 } } }
+  prices/summary.json   # { updatedAt, source, cardCount, cards: { <printingKey>: PriceRow } }
   prices/history.json   # { days: { "YYYY-MM-DD": { <printingKey>: eur } } }  — rolling 120 days
   report.json           # { updatedAt, stats, unresolved }  — what the join refused to pair
 overrides/
@@ -24,6 +24,22 @@ overrides/
 
 `printingKey` is `cardId:setCode:collectorNumber` and must stay identical to `printingKey` in
 the app's `lib/catalog.ts`. It is the contract between the two repos.
+
+A `PriceRow` carries every figure Cardmarket publishes for the paired product, so a reader can
+check the app against the source instead of wondering why two numbers disagree:
+
+| field | Cardmarket calls it | note |
+| --- | --- | --- |
+| `eur` | Price Trend | the headline, and what all value math uses |
+| `low` | **From** | the cheapest current listing — usually well below trend |
+| `avg` | all-time average sell price | |
+| `avg1`, `avg7`, `avg30` | 1/7/30-days average price | **null on every Cyberpunk row today** — nothing has sold often enough |
+| `cm` | — | the `idProduct` this was paired with: the audit trail for a price |
+| `d7`, `d30` | — | % move of `eur` over our own series; null until it has the days |
+
+The three numbers that look inconsistent but are not: for Adam Smasher β141, `low` is €60,
+`eur` (trend) is €73, and a holding of 2 copies is worth €146. Different measures, not a
+disagreement.
 
 ## Why the history file matters
 
