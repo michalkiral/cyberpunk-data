@@ -102,11 +102,11 @@ printings, and the `Iconic Legend` / `Iconic Other` / `Iconic Secret` tiers are 
 
 ```
 printings: 509 | cm products: 296 | price rows: 317
-paired: 211 (211 automatic, 0 pinned) | flagged: 4 | products in unmapped expansions: 35
-priced printings: 211 of 509
+paired: 215 (211 automatic, 4 pinned) | flagged: 0 | products in unmapped expansions: 35
+priced printings: 215 of 509
 ```
 
-**211 of 509 is not a failure.** Cardmarket lists only what is sellable, and the game does not
+**215 of 509 is not a failure.** Cardmarket lists only what is sellable, and the game does not
 reach retail until November 2026 — so the retail sets have no products at all, and many beta
 products have never sold and carry no trend. A printing with no price shows a dash in the app,
 never a zero.
@@ -114,17 +114,24 @@ never a zero.
 `idExpansion 6722` (35 products, 6 duplicate names inside it, 2 priced) matches no single set —
 best score 31.6% — and is deliberately left unmapped and unpriced.
 
-### What needs a hand today
+### What needed a hand, and how it was settled
 
-Two groups, both correctly refused:
+Nothing is refused today. Four products were pinned by hand on 2026-09-18:
 
-| Group | Why |
+| Group | Why the join would not decide it |
 | --- | --- |
 | `rebecca having a moment` @ PRM01 | We hold two printings (005, 007, both Nova Rare), Cardmarket lists one priced product. |
-| `v streetkid` @ WTNC Beta | β005a and β005b are both Rare, at €0.24 and €0.30 — price cannot separate them. |
+| `v streetkid` @ WTNC Beta | β005a and β005b are both Rare, at €0.24 and €0.30 — price cannot separate same-tier printings, and by design this join refuses to try. |
 
-The admin console's **Cyberpunk price pins** module shows exactly these, links each product to
-Cardmarket, and emits the `cm-pins.json` entries to paste back here.
+Both were resolved by reading `Number` off the Cardmarket product page, which carries the
+collector number even though the bulk files do not.
+
+**Read the expansion, never the number alone.** Cardmarket strips the `β` prefix, so its
+`Number: 005a` is our `β005a` in a Beta expansion and our `005a` in a Retail one — and **146 of
+172 beta printings share a stripped number with a retail printing**. The set always comes from
+`cm-expansions.json`, and the page's `Printed in` line is the cross-check. The admin console's
+**Cyberpunk price pins** module enforces this: it only offers the printings of the set the
+product's expansion already resolved to.
 
 A pin is a **pairing, never a price**. Upstream corrects itself — Limitless once had a One Piece
 card's base and alt values crossed and repaired it within a day — so a stored price would keep
