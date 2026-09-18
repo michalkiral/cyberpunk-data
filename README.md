@@ -78,8 +78,12 @@ and refuses a group whenever:
 - the two sides hold different numbers of things (`count-mismatch`)
 - both sides cannot be ranked unambiguously (`tied-rank`) — two same-rarity siblings six cents
   apart is a coin flip, and a coin flip is what a pin is for
-- a product carries no trend price (`unpriced-product`)
 - a pin names a printing that no longer exists (`pin-target-missing`)
+
+A product with **no trend price is ignored rather than flagged**: it can never contribute a
+price, so letting it count toward a group's size only blocked pairs that were otherwise
+unambiguous. Removing it took the paired count from 209 to 211 and the residue from 4 groups
+to 2.
 
 Alt arts are a **rarity tier** in this game, not a finish: `finish` is null on all 509
 printings, and the `Iconic Legend` / `Iconic Other` / `Iconic Secret` tiers are the alt arts.
@@ -88,11 +92,11 @@ printings, and the `Iconic Legend` / `Iconic Other` / `Iconic Secret` tiers are 
 
 ```
 printings: 509 | cm products: 296 | price rows: 317
-paired: 209 (209 automatic, 0 pinned) | flagged: 8 | products in unmapped expansions: 35
-priced printings: 209 of 509
+paired: 211 (211 automatic, 0 pinned) | flagged: 4 | products in unmapped expansions: 35
+priced printings: 211 of 509
 ```
 
-**209 of 509 is not a failure.** Cardmarket lists only what is sellable, and the game does not
+**211 of 509 is not a failure.** Cardmarket lists only what is sellable, and the game does not
 reach retail until November 2026 — so the retail sets have no products at all, and many beta
 products have never sold and carry no trend. A printing with no price shows a dash in the app,
 never a zero.
@@ -102,14 +106,15 @@ best score 31.6% — and is deliberately left unmapped and unpriced.
 
 ### What needs a hand today
 
-Four groups, all correctly refused:
+Two groups, both correctly refused:
 
 | Group | Why |
 | --- | --- |
-| `tetratonic rippler` @ The Heist starter | Cardmarket sells it; **the card database does not have the card**. Nothing to pin to. |
-| `rebecca having a moment` @ PRM01 | We hold two printings (005, 007, both Nova Rare), Cardmarket lists one. |
-| `v streetkid` @ WTNC Beta | β005a and β005b are both Rare, at €0.24 and €0.30. |
-| `johnny silverhand never stop fighting` @ WTNC Beta | We hold 2 beta printings, Cardmarket has 3 products in that expansion. |
+| `rebecca having a moment` @ PRM01 | We hold two printings (005, 007, both Nova Rare), Cardmarket lists one priced product. |
+| `v streetkid` @ WTNC Beta | β005a and β005b are both Rare, at €0.24 and €0.30 — price cannot separate them. |
+
+The admin console's **Cyberpunk price pins** module shows exactly these, links each product to
+Cardmarket, and emits the `cm-pins.json` entries to paste back here.
 
 A pin is a **pairing, never a price**. Upstream corrects itself — Limitless once had a One Piece
 card's base and alt values crossed and repaired it within a day — so a stored price would keep
