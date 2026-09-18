@@ -142,16 +142,28 @@ function verifyExpansions(expansions, report) {
   return problems;
 }
 
+/**
+ * Percentage move over `days`, or NULL when the series cannot say.
+ *
+ * Null rather than 0: zero means "this price did not move", and claiming that
+ * on day one — when there is nothing to compare against — would invent a fact.
+ * The app renders null as a dash, the same distinction it makes between an
+ * unpriced card and a worthless one.
+ */
 function movement(history, key, days) {
   const dates = Object.keys(history).sort();
   if (dates.length < 2) {
-    return 0;
+    return null;
   }
   const today = history[dates[dates.length - 1]]?.[key];
   const thenDate = dates[Math.max(0, dates.length - 1 - days)];
+  // Not enough days yet to look back this far.
+  if (dates.length - 1 < days) {
+    return null;
+  }
   const then = history[thenDate]?.[key];
-  if (!today || !then || then === 0) {
-    return 0;
+  if (!today || !then) {
+    return null;
   }
   return Math.round(((today - then) / then) * 1000) / 10;
 }
