@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-09-18",
+  "stats": {
+    "paired": 211,
+    "pinned": 0,
+    "automatic": 211,
+    "flagged": 4,
+    "unmappedExpansion": 35
+  },
+  "unresolved": [
+    {
+      "key": "PRM01|rebecca having a moment",
+      "reason": "count-mismatch",
+      "ours": [
+        {
+          "key": "cb-rebecca-having-a-moment:PRM01:005",
+          "collectorNumber": "005",
+          "rarity": "Nova Rare"
+        },
+        {
+          "key": "cb-rebecca-having-a-moment:PRM01:007",
+          "collectorNumber": "007",
+          "rarity": "Nova Rare"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 904772,
+          "trend": 231.78
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|v streetkid",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-v-streetkid:welcometonightcitybeta:β005a",
+          "collectorNumber": "β005a",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-v-streetkid:welcometonightcitybeta:β005b",
+          "collectorNumber": "β005b",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-v-streetkid:welcometonightcitybeta:β144",
+          "collectorNumber": "β144",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905092,
+          "trend": 0.24
+        },
+        {
+          "idProduct": 905093,
+          "trend": 0.3
+        },
+        {
+          "idProduct": 905232,
+          "trend": 33.39
+        }
+      ]
+    }
+  ]
+}

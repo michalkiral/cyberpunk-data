@@ -1,0 +1,13 @@
+{
+  "name": "cyberpunk-data",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static, versioned JSON prices for the Cyberpunk TCG, joined from Cardmarket's public price guide onto the printing keys the collection app uses, and served over jsDelivr.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "report": "node scripts/build.mjs --report",
+    "test": "node --test \"scripts/*.test.mjs\""
+  },
+  "license": "MIT"
+}

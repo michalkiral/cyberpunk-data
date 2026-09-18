@@ -1,0 +1,62 @@
+name: prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 03:30 UTC, after Cardmarket regenerates the guide (~02:47 CEST observed).
+    # Once a day is enough: the guide is a daily snapshot, not a live feed.
+    - cron: "30 3 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Unit tests
+        run: npm test
+
+      # Exits non-zero if a recorded expansion mapping no longer holds, which is
+      # how the retail launch will announce itself rather than silently
+      # re-pointing every price. A failed build leaves the last good data in place.
+      - name: Build prices
+        run: npm run build
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "no changes"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data: prices $(date -u +%Y-%m-%d)"
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # jsDelivr caches a mutable branch ref ~12 h per file at the edge, and
+      # `cache: no-cache` does not cross it — the edge answers 304 from its own
+      # copy. The app pins to a commit SHA, so this is belt and braces for
+      # anything reading @main.
+      - name: Purge jsDelivr cache
+        if: steps.commit.outputs.pushed == 'true'
+        run: |
+          for f in prices/summary.json prices/history.json report.json; do
+            curl -fsS "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/data/$f" > /dev/null \
+              || echo "warn: purge failed for $f"
+          done
