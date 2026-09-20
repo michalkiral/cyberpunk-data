@@ -1,0 +1,66 @@
+name: images
+
+on:
+  workflow_dispatch:
+  schedule:
+    # An hour after prices, so the two never race for a push. Daily is cheap
+    # because the job only downloads art it has never seen: a normal run fetches
+    # the catalog, finds nothing new and writes nothing.
+    - cron: "30 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: images
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Refuses to run against an empty set list, and fails if every download
+      # fails, so a bad day upstream leaves the last good mirror in place.
+      - name: Mirror thumbnails
+        run: npm run images
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/images
+          if git diff --cached --quiet; then
+            echo "no changes"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data: thumbnails $(date -u +%Y-%m-%d)"
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Only the index needs purging. The app reads it to learn which printings
+      # are mirrored, so a stale copy hides new art for up to jsDelivr's ~12 h
+      # edge TTL — during which those cards simply fall back to live signed URLs.
+      #
+      # The thumbnails themselves are deliberately NOT purged: a given path holds
+      # one printing's art and practically never changes. Unlike prices, they are
+      # served from @main rather than a commit SHA, so that a nightly commit does
+      # not invalidate every cached image at once. The rare re-render therefore
+      # takes up to 12 h to appear, which is the right trade for keeping 537
+      # images cached.
+      - name: Purge jsDelivr cache
+        if: steps.commit.outputs.pushed == 'true'
+        run: |
+          curl -fsS "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/data/images/index.json" > /dev/null \
+            || echo "warn: purge failed for images/index.json"

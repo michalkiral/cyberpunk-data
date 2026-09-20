@@ -16,6 +16,8 @@ cannot fetch it. A nightly Action can.
 data/
   prices/summary.json   # { updatedAt, source, cardCount, cards: { <printingKey>: PriceRow } }
   report.json           # { updatedAt, stats, unresolved }  — what the join refused to pair
+  images/index.json     # { <printingId>: <renderHash> } — which printings are mirrored
+  images/thumb/<printingId>.webp   # 240px card thumbnails, ~22 KB each
 overrides/
   cm-expansions.json    # Cardmarket idExpansion -> our set code
   cm-pins.json          # Cardmarket idProduct -> our printing key (hand-checked)
@@ -136,6 +138,39 @@ product's expansion already resolved to.
 A pin is a **pairing, never a price**. Upstream corrects itself — Limitless once had a One Piece
 card's base and alt values crossed and repaired it within a day — so a stored price would keep
 re-applying and silently turn a corrected number back into a wrong one.
+
+## Mirrored thumbnails
+
+`npm run images` mirrors a 240px thumbnail per printing into `data/images/thumb/`, keyed by the
+card database's own `printing.id` — the same uuid the app stores as `card.printingId`, so the app
+derives a URL without asking us anything.
+
+**Why mirror at all.** The card database serves art as CloudFront URLs signed for about five
+minutes. That single fact forces three things on the app: the catalog is held in memory only (a
+stored URL is dead by the time it is read), `refreshCatalogImages()` re-fetches the whole catalog
+just to re-sign every URL, and `CardImage` tracks *which* URL failed so a fresh one can be retried.
+
+It also makes a shareable collage impossible. The signed URLs send no `Access-Control-Allow-Origin`
+(verified 2026-09-20: a real URL returns 200 with no such header, with or without an `Origin`), so
+a canvas drawing them is tainted and `toBlob()` throws. Routing them through the weserv proxy — the
+trick that makes the One Piece collage work — fails too: CloudFront answers weserv with 403. That
+is not an IP restriction, because the URL carries `Expires`/`Key-Pair-Id`/`Signature`, a *canned*
+policy, which cannot be IP-bound; the likely cause is the signature's URL-safe base64 containing
+`~`, which a proxy re-encodes.
+
+**Only thumbnails.** The card page renders art in a ~308px column and looks better with the
+full-resolution original, which costs us nothing to keep loading live. Mirroring only the
+thumbnails is 9.5 MB rather than 54 MB, and grids are where the load actually is: a tile pulls
+~22 KB instead of ~109 KB.
+
+**Staleness.** Freshness is decided by the `render-<hash>.webp` segment of the source URL, not by
+the signature, so a re-rendered card is re-downloaded and everything else is skipped. A normal run
+downloads nothing. A printing the database drops loses both its file and its index entry, or the
+mirror would grow forever.
+
+Unlike prices, the app reads these from `@main` rather than a commit SHA — pinning would
+invalidate every cached image on each nightly commit. The index is purged after a push; the
+thumbnails are not, so the rare re-render takes up to jsDelivr's ~12 h edge TTL to appear.
 
 ## Pipeline
 

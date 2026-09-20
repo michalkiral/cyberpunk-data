@@ -7,7 +7,11 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "report": "node scripts/build.mjs --report",
-    "test": "node --test \"scripts/*.test.mjs\""
+    "test": "node --test \"scripts/*.test.mjs\"",
+    "images": "node scripts/images.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.34.2"
+  }
 }
