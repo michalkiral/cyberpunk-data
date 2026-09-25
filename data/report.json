@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-09-25",
   "stats": {
-    "paired": 228,
+    "paired": 169,
     "pinned": 4,
-    "automatic": 224,
-    "flagged": 1,
+    "automatic": 165,
+    "flagged": 61,
     "unmappedExpansion": 35
   },
   "unresolved": [
@@ -16,6 +16,786 @@
         {
           "idProduct": 905085,
           "trend": 0.14
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|adam smasher ender of legends",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-adam-smasher-ender-of-legends:welcometonightcitybeta:β001",
+          "collectorNumber": "β001",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-adam-smasher-ender-of-legends:welcometonightcitybeta:β141",
+          "collectorNumber": "β141",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905088,
+          "trend": 0
+        },
+        {
+          "idProduct": 905229,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|dexter deshawn off the grid",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-dexter-deshawn-off-the-grid:welcometonightcitybeta:β002",
+          "collectorNumber": "β002",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-dexter-deshawn-off-the-grid:welcometonightcitybeta:β142",
+          "collectorNumber": "β142",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905089,
+          "trend": 0
+        },
+        {
+          "idProduct": 905230,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|johnny silverhand rocking renegade",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-johnny-silverhand-rocking-renegade:welcometonightcitybeta:β003",
+          "collectorNumber": "β003",
+          "rarity": "Secret"
+        },
+        {
+          "key": "cb-johnny-silverhand-rocking-renegade:welcometonightcitybeta:β168",
+          "collectorNumber": "β168",
+          "rarity": "Iconic Secret"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905090,
+          "trend": 0
+        },
+        {
+          "idProduct": 905257,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|royce psycho on the edge",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-royce-psycho-on-the-edge:welcometonightcitybeta:β004",
+          "collectorNumber": "β004",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-royce-psycho-on-the-edge:welcometonightcitybeta:β143",
+          "collectorNumber": "β143",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905091,
+          "trend": 0
+        },
+        {
+          "idProduct": 905231,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|johnny silverhand never stop fighting",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-johnny-silverhand-never-stop-fighting:welcometonightcitybeta:β011",
+          "collectorNumber": "β011",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-johnny-silverhand-never-stop-fighting:welcometonightcitybeta:β159",
+          "collectorNumber": "β159",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905099,
+          "trend": 0
+        },
+        {
+          "idProduct": 905248,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|dum dum maelstrom triggerman",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-dum-dum-maelstrom-triggerman:welcometonightcitybeta:β036",
+          "collectorNumber": "β036",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-dum-dum-maelstrom-triggerman:welcometonightcitybeta:β145",
+          "collectorNumber": "β145",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905124,
+          "trend": 0
+        },
+        {
+          "idProduct": 905233,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|kerry eurodyne axe attitude audience",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-kerry-eurodyne-axe-attitude-audience:welcometonightcitybeta:β037",
+          "collectorNumber": "β037",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-kerry-eurodyne-axe-attitude-audience:welcometonightcitybeta:β146",
+          "collectorNumber": "β146",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905125,
+          "trend": 0
+        },
+        {
+          "idProduct": 905234,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|muamar reyes el capit n",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-muamar-reyes-el-capita-n:welcometonightcitybeta:β038",
+          "collectorNumber": "β038",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-muamar-reyes-el-capita-n:welcometonightcitybeta:β147",
+          "collectorNumber": "β147",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905126,
+          "trend": 0
+        },
+        {
+          "idProduct": 905235,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|river ward detective on the hunt",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-river-ward-detective-on-the-hunt:welcometonightcitybeta:β039",
+          "collectorNumber": "β039",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-river-ward-detective-on-the-hunt:welcometonightcitybeta:β148",
+          "collectorNumber": "β148",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905127,
+          "trend": 0
+        },
+        {
+          "idProduct": 905236,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|rogue amendiares preem solo",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-rogue-amendiares-preem-solo:welcometonightcitybeta:β040",
+          "collectorNumber": "β040",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-rogue-amendiares-preem-solo:welcometonightcitybeta:β149",
+          "collectorNumber": "β149",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905128,
+          "trend": 0
+        },
+        {
+          "idProduct": 905237,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|adam smasher metal over meat",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-adam-smasher-metal-over-meat:welcometonightcitybeta:β041",
+          "collectorNumber": "β041",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-adam-smasher-metal-over-meat:welcometonightcitybeta:β160",
+          "collectorNumber": "β160",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905129,
+          "trend": 0
+        },
+        {
+          "idProduct": 905249,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|alt cunningham mother of daemons",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-alt-cunningham-mother-of-daemons:welcometonightcitybeta:β042",
+          "collectorNumber": "β042",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-alt-cunningham-mother-of-daemons:welcometonightcitybeta:β161",
+          "collectorNumber": "β161",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905130,
+          "trend": 0
+        },
+        {
+          "idProduct": 905250,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|hanako arasaka in a gilded cage",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-hanako-arasaka-in-a-gilded-cage:welcometonightcitybeta:β046",
+          "collectorNumber": "β046",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-hanako-arasaka-in-a-gilded-cage:welcometonightcitybeta:β162",
+          "collectorNumber": "β162",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905134,
+          "trend": 0
+        },
+        {
+          "idProduct": 905251,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|the relic experimental biochip",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-the-relic-experimental-biochip:welcometonightcitybeta:β063",
+          "collectorNumber": "β063",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-the-relic-experimental-biochip:welcometonightcitybeta:β163",
+          "collectorNumber": "β163",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905151,
+          "trend": 0
+        },
+        {
+          "idProduct": 905252,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|goro takemura vengeful bodyguard",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-goro-takemura-vengeful-bodyguard:welcometonightcitybeta:β071",
+          "collectorNumber": "β071",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-goro-takemura-vengeful-bodyguard:welcometonightcitybeta:β150",
+          "collectorNumber": "β150",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905159,
+          "trend": 0
+        },
+        {
+          "idProduct": 905238,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|hanako arasaka daughter of the emperor",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-hanako-arasaka-daughter-of-the-emperor:welcometonightcitybeta:β072",
+          "collectorNumber": "β072",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-hanako-arasaka-daughter-of-the-emperor:welcometonightcitybeta:β151",
+          "collectorNumber": "β151",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905160,
+          "trend": 0
+        },
+        {
+          "idProduct": 905239,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|jackie welles mama s favorite",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-jackie-welles-mama-s-favorite:welcometonightcitybeta:β073",
+          "collectorNumber": "β073",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-jackie-welles-mama-s-favorite:welcometonightcitybeta:β152",
+          "collectorNumber": "β152",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905161,
+          "trend": 0
+        },
+        {
+          "idProduct": 905240,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|padre man of the cross",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-padre-man-of-the-cross:welcometonightcitybeta:β074",
+          "collectorNumber": "β074",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-padre-man-of-the-cross:welcometonightcitybeta:β153",
+          "collectorNumber": "β153",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905162,
+          "trend": 0
+        },
+        {
+          "idProduct": 905241,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|panam palmer nomad cavalry",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-panam-palmer-nomad-cavalry:welcometonightcitybeta:β075",
+          "collectorNumber": "β075",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-panam-palmer-nomad-cavalry:welcometonightcitybeta:β154",
+          "collectorNumber": "β154",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905163,
+          "trend": 0
+        },
+        {
+          "idProduct": 905242,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|panam palmer strength through family",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-panam-palmer-strength-through-family:welcometonightcitybeta:β085",
+          "collectorNumber": "β085",
+          "rarity": "Secret"
+        },
+        {
+          "key": "cb-panam-palmer-strength-through-family:welcometonightcitybeta:β170",
+          "collectorNumber": "β170",
+          "rarity": "Iconic Secret"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905173,
+          "trend": 0
+        },
+        {
+          "idProduct": 905259,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|sandayu oda hanako s guardian",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-sandayu-oda-hanako-s-guardian:welcometonightcitybeta:β088",
+          "collectorNumber": "β088",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-sandayu-oda-hanako-s-guardian:welcometonightcitybeta:β164",
+          "collectorNumber": "β164",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905176,
+          "trend": 0
+        },
+        {
+          "idProduct": 905253,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|overwatch panam s gift",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-overwatch-panam-s-gift:welcometonightcitybeta:β093",
+          "collectorNumber": "β093",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-overwatch-panam-s-gift:welcometonightcitybeta:β165",
+          "collectorNumber": "β165",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905181,
+          "trend": 0
+        },
+        {
+          "idProduct": 905254,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|alt cunningham soulkiller architect",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-alt-cunningham-soulkiller-architect:welcometonightcitybeta:β106",
+          "collectorNumber": "β106",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-alt-cunningham-soulkiller-architect:welcometonightcitybeta:β155",
+          "collectorNumber": "β155",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905194,
+          "trend": 0
+        },
+        {
+          "idProduct": 905243,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|evelyn parker beautiful enigma",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-evelyn-parker-beautiful-enigma:welcometonightcitybeta:β107",
+          "collectorNumber": "β107",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-evelyn-parker-beautiful-enigma:welcometonightcitybeta:β156",
+          "collectorNumber": "β156",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905195,
+          "trend": 0
+        },
+        {
+          "idProduct": 905244,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|judy lvarez braindance maestro",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-judy-a-lvarez-braindance-maestro:welcometonightcitybeta:β108",
+          "collectorNumber": "β108",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-judy-a-lvarez-braindance-maestro:welcometonightcitybeta:β157",
+          "collectorNumber": "β157",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905196,
+          "trend": 0
+        },
+        {
+          "idProduct": 905245,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|sasha yakovleva won t let you down",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-sasha-yakovleva-won-t-let-you-down:welcometonightcitybeta:β109",
+          "collectorNumber": "β109",
+          "rarity": "Secret"
+        },
+        {
+          "key": "cb-sasha-yakovleva-won-t-let-you-down:welcometonightcitybeta:β169",
+          "collectorNumber": "β169",
+          "rarity": "Iconic Secret"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905197,
+          "trend": 0
+        },
+        {
+          "idProduct": 905258,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|wakako okada peace and harmony",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-wakako-okada-peace-and-harmony:welcometonightcitybeta:β110",
+          "collectorNumber": "β110",
+          "rarity": "Rare"
+        },
+        {
+          "key": "cb-wakako-okada-peace-and-harmony:welcometonightcitybeta:β158",
+          "collectorNumber": "β158",
+          "rarity": "Iconic Legend"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905198,
+          "trend": 0
+        },
+        {
+          "idProduct": 905246,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|judy lvarez nothing to doubt",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-judy-a-lvarez-nothing-to-doubt:welcometonightcitybeta:β116",
+          "collectorNumber": "β116",
+          "rarity": "Secret"
+        },
+        {
+          "key": "cb-judy-a-lvarez-nothing-to-doubt:welcometonightcitybeta:β171",
+          "collectorNumber": "β171",
+          "rarity": "Iconic Secret"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905204,
+          "trend": 0
+        },
+        {
+          "idProduct": 905260,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|rogue amendiares queen of the afterlife",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-rogue-amendiares-queen-of-the-afterlife:welcometonightcitybeta:β126",
+          "collectorNumber": "β126",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-rogue-amendiares-queen-of-the-afterlife:welcometonightcitybeta:β166",
+          "collectorNumber": "β166",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905214,
+          "trend": 0
+        },
+        {
+          "idProduct": 905255,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "welcometonightcitybeta|towerfall",
+      "reason": "tied-rank",
+      "ours": [
+        {
+          "key": "cb-towerfall:welcometonightcitybeta:β138",
+          "collectorNumber": "β138",
+          "rarity": "Epic"
+        },
+        {
+          "key": "cb-towerfall:welcometonightcitybeta:β167",
+          "collectorNumber": "β167",
+          "rarity": "Iconic Other"
+        }
+      ],
+      "theirs": [
+        {
+          "idProduct": 905226,
+          "trend": 0
+        },
+        {
+          "idProduct": 905256,
+          "trend": 0
         }
       ]
     }
