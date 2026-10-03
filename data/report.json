@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-03",
   "stats": {
     "paired": 176,
     "pinned": 4,
@@ -15,7 +15,7 @@
       "theirs": [
         {
           "idProduct": 905085,
-          "trend": 0.38
+          "trend": 0.29
         }
       ]
     },
