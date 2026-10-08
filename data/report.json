@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-07",
+  "updatedAt": "2026-10-08",
   "stats": {
-    "paired": 176,
+    "paired": 180,
     "pinned": 4,
-    "automatic": 172,
-    "flagged": 61,
+    "automatic": 176,
+    "flagged": 59,
     "unmappedExpansion": 35
   },
   "unresolved": [
@@ -769,32 +769,6 @@
         },
         {
           "idProduct": 905255,
-          "trend": 0
-        }
-      ]
-    },
-    {
-      "key": "welcometonightcitybeta|towerfall",
-      "reason": "tied-rank",
-      "ours": [
-        {
-          "key": "cb-towerfall:welcometonightcitybeta:β138",
-          "collectorNumber": "β138",
-          "rarity": "Epic"
-        },
-        {
-          "key": "cb-towerfall:welcometonightcitybeta:β167",
-          "collectorNumber": "β167",
-          "rarity": "Iconic Other"
-        }
-      ],
-      "theirs": [
-        {
-          "idProduct": 905226,
-          "trend": 0
-        },
-        {
-          "idProduct": 905256,
           "trend": 0
         }
       ]
