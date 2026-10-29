@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-28",
+  "updatedAt": "2026-10-29",
   "stats": {
-    "paired": 186,
+    "paired": 188,
     "pinned": 4,
-    "automatic": 182,
-    "flagged": 59,
+    "automatic": 184,
+    "flagged": 57,
     "unmappedExpansion": 35
   },
   "unresolved": [
@@ -67,32 +67,6 @@
         },
         {
           "idProduct": 905230,
-          "trend": 0
-        }
-      ]
-    },
-    {
-      "key": "welcometonightcitybeta|johnny silverhand rocking renegade",
-      "reason": "tied-rank",
-      "ours": [
-        {
-          "key": "cb-johnny-silverhand-rocking-renegade:welcometonightcitybeta:β003",
-          "collectorNumber": "β003",
-          "rarity": "Secret"
-        },
-        {
-          "key": "cb-johnny-silverhand-rocking-renegade:welcometonightcitybeta:β168",
-          "collectorNumber": "β168",
-          "rarity": "Iconic Secret"
-        }
-      ],
-      "theirs": [
-        {
-          "idProduct": 905090,
-          "trend": 0
-        },
-        {
-          "idProduct": 905257,
           "trend": 0
         }
       ]
