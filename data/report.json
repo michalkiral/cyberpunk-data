@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-01",
   "stats": {
-    "paired": 189,
+    "paired": 190,
     "pinned": 4,
-    "automatic": 185,
+    "automatic": 186,
     "flagged": 57,
-    "unmappedExpansion": 191
+    "unmappedExpansion": 264
   },
   "unresolved": [
     {
@@ -15,7 +15,7 @@
       "theirs": [
         {
           "idProduct": 905085,
-          "trend": 0.07
+          "trend": 0.02
         }
       ]
     },
