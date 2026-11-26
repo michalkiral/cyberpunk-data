@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-25",
+  "updatedAt": "2026-11-26",
   "stats": {
     "paired": 192,
     "pinned": 4,
     "automatic": 188,
-    "flagged": 57,
+    "flagged": 58,
     "unmappedExpansion": 309
   },
   "unresolved": [
@@ -743,6 +743,17 @@
         },
         {
           "idProduct": 905255,
+          "trend": 0
+        }
+      ]
+    },
+    {
+      "key": "PRM01|jackie v chooms to the end",
+      "reason": "no-printing",
+      "ours": [],
+      "theirs": [
+        {
+          "idProduct": 924040,
           "trend": 0
         }
       ]
